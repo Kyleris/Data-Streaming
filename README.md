@@ -98,10 +98,11 @@ docker-compose up -d
 Cela lancera deux conteneurs Docker : un pour RabbitMQ et un pour MySQL. On peut accéder à RabbitMQ 
 en allant sur http://localhost:15672 et en se connectant avec les informations d'identification spécifiées dans .env.
 
-# Lancer les consommateurs RabbitMQ
-Pour lancer les consommateurs RabbitMQ, exécution des commandes suivantes :
+# Lançant les consommateurs RabbitMQ
+Pour lancer les consommateurs RabbitMQ, on exécute les commandes suivantes :
 ```
 python consumer_data_clean.py
+```
 ```
 python consumer_data_lake.py
 ```
@@ -118,9 +119,3 @@ Cela enverra un message à la file d'attente 'queue-data-clean'. On peut toujour
 
 # Fermer la connexion
 connection.close()
-![My Image](assets/schema.png)
-
-```
-docker-compose --env-file .env -f docker-compose.yml -p data-stream up -d
-
-```
