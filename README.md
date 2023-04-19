@@ -23,8 +23,8 @@ les systèmes d'analyse de données en temps réel et bien d'autres.
 Le but du projet est de créer un producteur qui lira un fichier logs et les publiera sur un topic d'échange qui sera lié à deux files d'attente, appellées: 
 "queue-data-lake" et "queue-data-clean". Chaque événement publié par le producteur de logs sera envoyé aux deux files d'attente. Dans ce cas, deux consommateurs seront créés pour consommer les événements de chaque file d'attente en transformant les journaux et en insérant les résultats dans une base de données à l'aide d'un ORM.
 
-# consumer_Data_Rows
-Le "consumer_Data_Rows" se connectera à une base de données MySql et insérera chaque ligne de logs en tant que nouvel enregistrement dans une table appelée "raw-log" 
+# consumer_Data_lake
+Le "consumer_Data_lake" se connectera à une base de données MySql et insérera chaque ligne de logs en tant que nouvel enregistrement dans une table appelée "raw-log" 
 à l'aide d'un ORM. Les informations seront stockées sous les détails suivants :
 -> id: md5 hash of all the line log
 -> timestamp: the time of the log with the timezone
@@ -82,6 +82,10 @@ DB_ROOT_PASSWORD="....."
 ```
 docker-compose --env-file .env -f docker-compose.yml -p data-stream up -d
 ```
+
+Cela lancera deux conteneurs Docker : un pour RabbitMQ et un pour MySQL. On peut accéder au serveur RabbitMQ 
+en allant sur http://localhost:15672 et en se connectant avec les informations d'identification spécifiées dans .env, pour le serveur MySql on peut se connecter en tilisant le serveur web phpMyAdmin à l'adresse http://localhost:8080.
+
 4. Création d'un environement virtuel et installation des dependences du fichier requirementses.txt avec la commande:
 ```
 python -m venv venv
@@ -89,15 +93,12 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-# Utilisation
-Lancer RabbitMQ avec Docker Compose:
-```
-docker-compose up -d
-```
-Cela lancera deux conteneurs Docker : un pour RabbitMQ et un pour MySQL. On peut accéder à RabbitMQ 
-en allant sur http://localhost:15672 et en se connectant avec les informations d'identification spécifiées dans .env.
+# Lançant le producer et les consommateurs RabbitMQ
 
-# Lançant les consommateurs RabbitMQ
+pour lancer le logs_producer, on éxécute la commande suivante:
+```
+python logs_producer.py
+```
 Pour lancer les consommateurs RabbitMQ, on exécute les commandes suivantes :
 ```
 python consumer_data_clean.py
@@ -107,16 +108,8 @@ python consumer_data_lake.py
 ```
 Ces commandes lanceront deux consommateurs RabbitMQ qui écouteront les files d'attente 'queue-data-clean' et 'queue-data-lake' respectivement.
 
-# Etablir une connexion avec RabbitMQ
-credentials = pika.PlainCredentials(CONFIG['RABBIT_USER'], CONFIG['RABBIT_PASSWORD'])
-parameters = pika.ConnectionParameters(RABBIT_MQ_SERVER, credentials=credentials)
-connection = pika.BlockingConnection(parameters)
-channel = connection.channel()
 
 # Envoyer un message à la file d'attente 'queue-data-clean'
 Cela enverra un message à la file d'attente 'queue-data-clean'. On peut toujours modifier le nom de la file d'attente selon nos besoins.
 
-# Fermer la connexion
-```
-connection.close()
-```
+
