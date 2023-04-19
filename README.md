@@ -61,9 +61,9 @@ Le resultat sorti:
 -  size_mega_bytes: 0.001386
 
 # Prérequis
-Python 3.7 ou supérieur
-RabbitMQ 3.11 avec le plugin de gestion activé
-MySQL 5.7 ou supérieur
+Python 3.7 ou supérieur, 
+RabbitMQ 3.11 avec le plugin de gestion activé, 
+MySQL 5.7 ou supérieur, 
 Accès root au serveur
 
 # Installation
@@ -117,4 +117,6 @@ channel = connection.channel()
 Cela enverra un message à la file d'attente 'queue-data-clean'. On peut toujours modifier le nom de la file d'attente selon nos besoins.
 
 # Fermer la connexion
+```
 connection.close()
+```
