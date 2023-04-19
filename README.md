@@ -84,7 +84,8 @@ docker-compose --env-file .env -f docker-compose.yml -p data-stream up -d
 ```
 
 Cela lancera deux conteneurs Docker : un pour RabbitMQ et un pour MySQL. On peut accéder au serveur RabbitMQ 
-en allant sur http://localhost:15672 et en se connectant avec les informations d'identification spécifiées dans .env, pour le serveur MySql on peut se connecter en tilisant le serveur web phpMyAdmin à l'adresse http://localhost:8080.
+en allant sur http://localhost:15672 et en se connectant avec les informations d'identification spécifiées dans .env, 
+pour le serveur MySql on peut se connecter en utilisant le serveur web phpMyAdmin à l'adresse http://localhost:8080.
 
 ![My Image](assets/rabbitmq.png)
 
@@ -97,7 +98,7 @@ pip install -r requirements.txt
 
 # Lançant le producer et les consommateurs RabbitMQ
 
-pour lancer le logs_producer, on éxécute la commande suivante:
+Pour lancer le logs_producer, on éxécute la commande suivante:
 ```
 python logs_producer.py
 ```
