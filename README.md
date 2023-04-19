@@ -1,11 +1,9 @@
 # RabbitMQ Data Streaming
 
 # Préambule et Définiton
-Le data streaming, également connu sous le nom de traitement en temps réel ou traitement de flux de données, 
-est un modèle de traitement des données dans lequel les données sont traitées et analysées à mesure qu'elles sont générées ou reçues, 
-plutôt que d'être stockées pour un traitement ultérieur. En d'autres termes, le data streaming permet de traiter les données à la volée, 
-à mesure qu'elles sont produites, sans avoir besoin de les stocker intégralement dans une base de données avant de les traiter.
-Le data streaming est couramment utilisé dans de nombreux domaines, notamment l'Internet des objets (IoT), 
+Le data streaming, également connu sous le nom de traitement en temps réel ou traitement de flux de données, est un modèle de traitement 
+des données dans lequel les données sont traitées et analysées à mesure qu'elles sont générées ou reçues, plutôt que d'être stockées 
+pour un traitement ultérieur. Le data streaming est couramment utilisé dans de nombreux domaines, notamment l'Internet des objets (IoT), 
 l'analyse de données en temps réel, la surveillance des réseaux, la finance, la publicité en ligne, la sécurité et bien d'autres.
 
 # Qu'est ce que RabbitMQ?
