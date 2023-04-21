@@ -112,7 +112,7 @@ python consumer_data_clean.py
 ```
 python consumer_data_lake.py
 ```
-Ces commandes lanceront deux consommateurs RabbitMQ qui écouteront les files d'attente 'queue-data-clean' et 'queue-data-lake' respectivement.
+Ces commandes lanceront deux consommateurs RabbitMQ qui écouteront les files d'attente 'queue-data-clean' et 'queue-data-lake' respectivement et qui consomment les messages reçus sur chaque fille d'attente.
 
 
 
