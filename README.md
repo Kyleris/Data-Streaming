@@ -89,6 +89,8 @@ pour le serveur MySql on peut se connecter en utilisant le serveur web phpMyAdmi
 
 ![My Image](assets/rabbitmq.png)
 
+![My Image](assets/php.png)
+
 4. Création d'un environement virtuel et installation des dependences du fichier requirementses.txt avec la commande:
 ```
 python -m venv venv
