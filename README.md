@@ -102,6 +102,9 @@ Pour lancer le logs_producer, on éxécute la commande suivante:
 ```
 python logs_producer.py
 ```
+
+Cela enverra un message à la file d'attente 'queue-data-clean'. On peut toujours modifier le nom de la file d'attente selon nos besoins.
+
 Pour lancer les consommateurs RabbitMQ, on exécute les commandes suivantes :
 ```
 python consumer_data_clean.py
@@ -112,7 +115,5 @@ python consumer_data_lake.py
 Ces commandes lanceront deux consommateurs RabbitMQ qui écouteront les files d'attente 'queue-data-clean' et 'queue-data-lake' respectivement.
 
 
-# Envoyer un message à la file d'attente 'queue-data-clean'
-Cela enverra un message à la file d'attente 'queue-data-clean'. On peut toujours modifier le nom de la file d'attente selon nos besoins.
 
 
